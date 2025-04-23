@@ -41,7 +41,7 @@ L’utilisateur peut ainsi remplacer la télécommande physique par une téléco
 #### Méthode recommandée :
 
 - Aller sur l’interface Freebox OS ([mafreebox.freebox.fr](http://mafreebox.freebox.fr))
-- Accéder à la rubrique **Périphériques connectés**
+- Accéder à la rubrique **Switch** dans **les paramètres de la Freebox`**
 - Identifier le Freebox Player par son **adresse MAC** ou son **nom**
 
 > Exemple d’identification depuis la Freebox OS :
