@@ -28,9 +28,9 @@ L’utilisateur peut ainsi remplacer la télécommande physique par une téléco
 ## Prérequis
 
 - **Python 3.10 ou supérieur**
-- Connexion locale au même réseau que la Freebox Player
+- Connexion locale au même réseau que le Freebox Player
 - Code de la télécommande Freebox (généré par le décodeur)
-- IP locale de la Freebox Player
+- IP locale du Freebox Player
 
 ---
 
@@ -41,14 +41,13 @@ L’utilisateur peut ainsi remplacer la télécommande physique par une téléco
 #### Méthode recommandée :
 
 - Aller sur l’interface Freebox OS ([mafreebox.freebox.fr](http://mafreebox.freebox.fr))
-- Accéder à la rubrique **Switch** dans **les paramètres de la Freebox`**
+- Accéder à la rubrique **Switch** dans **les paramètres de la Freebox**
 - Identifier le Freebox Player par son **adresse MAC** ou son **nom**
 
-> Exemple d’identification depuis la Freebox OS :
+> Exemple d’identification depuis Freebox OS :
 > ![Capture Freebox OS](images/switch-access.png)
 > ![Capture Freebox OS](images/mac-list.png)
 
-#### Si l'IP n’est pas visible via `arp -a` :
 #### Si l'IP n’est pas visible via `arp -a` :
 
 La commande `arp -a` permet d’afficher la table ARP, qui associe les adresses IP aux adresses MAC connues par votre machine.  
@@ -57,8 +56,7 @@ Elle est utile **après avoir trouvé l’adresse MAC du Freebox Player** via l�
 ```bash
 arp -a
 
-- Exemple avec `nmap` :
-```bash
+# Exemple avec `nmap` :
 nmap -sn 192.168.0.0/24
 ```
 
@@ -77,6 +75,7 @@ Sur la télévision (via le Player) :
 
 🎬 **Vidéo explicative** :
 ![Vidéo explicative](images/telec.gif)
+
 ---
 
 ### 3. Modifier le fichier `app.py`
@@ -138,6 +137,9 @@ Exemple pour augmenter le volume :
 ```
 http://192.168.0.2/pub/remote_control?code=55984265&key=vol_up
 ```
+
+🎬 **Vidéo Démonstration** :
+![Vidéo explicative](images/telec.gif)
 
 ---
 
