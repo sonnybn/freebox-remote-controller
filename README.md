@@ -34,6 +34,59 @@ L’utilisateur peut ainsi remplacer la télécommande physique par une téléco
 
 ---
 
+## Configuration
+
+### 1. Récupérer l’adresse IP du Freebox Player
+
+#### Méthode recommandée :
+
+- Aller sur l’interface Freebox OS ([mafreebox.freebox.fr](http://mafreebox.freebox.fr))
+- Accéder à la rubrique **Périphériques connectés**
+- Identifier le Freebox Player par son **adresse MAC** ou son **nom**
+
+> Exemple d’identification depuis la Freebox OS :
+> ![Capture Freebox OS](images/switch-access.png)
+> ![Capture Freebox OS](images/mac-list.png)
+
+#### Si l'IP n’est pas visible via `arp -a` :
+
+Dans certains cas, l'IP du Player n'apparaît pas directement via `arp -a`. Une méthode plus fiable est de scanner tout le réseau local.
+
+- Exemple avec `nmap` :
+```bash
+nmap -sn 192.168.0.0/24
+```
+
+- Ou, sur Windows, utiliser un outil graphique comme **Advanced IP Scanner**.
+
+📌 **Par défaut**, l’IP du Player est souvent `192.168.0.2`.
+
+---
+
+### 2. Récupérer le code de la télécommande
+
+Sur la télévision (via le Player) :
+
+- Aller dans **Paramètres → Système → Télécommande Freebox**
+- Noter le code à 8 chiffres affiché (ex : `55984265`)
+
+🎬 **Vidéo explicative** :
+<video width="600" controls>
+  <source src="telec.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la lecture vidéo.
+</video>
+
+---
+
+### 3. Modifier le fichier `app.py`
+
+Ouvrez le fichier `app.py` et remplacez :
+
+- `REMOTE_CODE = "VOTRE_CODE_ICI"` par votre code télécommande
+- `FREEBOX_IP = "192.168.X.X"` par l’adresse IP trouvée précédemment
+
+---
+
 ## Installation
 
 1. **Cloner le dépôt** :
@@ -57,38 +110,6 @@ L’utilisateur peut ainsi remplacer la télécommande physique par une téléco
 
 ---
 
-## Configuration
-
-### 1. Récupérer l’adresse IP du Freebox Player
-
-#### Méthode recommandée :
-
-- Aller sur l’interface Freebox OS ([mafreebox.freebox.fr](http://mafreebox.freebox.fr))
-- Accéder à la rubrique **Périphériques connectés**
-- Identifier le Freebox Player par son **adresse MAC** ou son **nom**
-
-#### Sinon, depuis le terminal :
-```bash
-arp -a
-```
-Rechercher l’adresse IP associée à l’adresse MAC du Freebox Player.
-
-> Exemple d’identification depuis la Freebox OS :
-> ![Capture Freebox OS](images/freebox_os_mac.png)
-
----
-
-### 2. Récupérer le code de la télécommande
-
-Sur la télévision (via le Player) :
-
-- Aller dans **Paramètres → Système → Télécommande Freebox**
-- Noter le code à 8 chiffres affiché (ex : `55984265`)
-
-Ce code sera utilisé dans les requêtes HTTP.
-
----
-
 ## Structure du projet
 
 ```
@@ -99,6 +120,7 @@ freebox-remote-web/
 ├── templates/
 │   └── index.html      # Interface utilisateur
 ├── images/             # Captures d’écran utilisées dans le README
+├── telec.mp4           # Vidéo de démonstration pour récupérer le code
 └── README.md
 ```
 
