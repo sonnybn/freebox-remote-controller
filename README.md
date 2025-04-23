@@ -137,9 +137,6 @@ Exemple pour augmenter le volume :
 ```
 http://192.168.0.2/pub/remote_control?code=55984265&key=vol_up
 ```
-
-🎬 **Vidéo Démonstration** :
-![Vidéo explicative](images/test.gif)
 ---
 
 ## Limitations connues
