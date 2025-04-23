@@ -48,20 +48,24 @@ L’utilisateur peut ainsi remplacer la télécommande physique par une téléco
 > ![Capture Freebox OS](images/switch-access.png)
 > ![Capture Freebox OS](images/mac-list.png)
 
-#### Si l'IP n’est pas visible via `arp -a` :
+#### Si l’adresse IP du Player n’apparaît pas avec `arp -a` :
 
-Dans certains cas, l'IP du Player n'apparaît pas directement via `arp -a`. Une méthode plus fiable est de scanner tout le réseau local.
+La commande `arp -a` affiche la table ARP de votre machine, listant les IP récentes associées à des adresses MAC.  
+Elle est utilisée ici pour retrouver l’adresse IP correspondant à l’adresse MAC du Freebox Player.
 
-- Exemple avec `nmap` :
-```bash
+Cependant, si le Player n’est pas encore en communication avec votre machine, son IP peut ne pas apparaître dans cette table.
+
+Dans ce cas, une solution plus fiable consiste à scanner tout le réseau local.
+
+# Exemple sous Linux/macOS avec nmap :
 nmap -sn 192.168.0.0/24
-```
 
-- Ou, sur Windows, utiliser un outil graphique comme **Advanced IP Scanner**.
+# Sous Windows, vous pouvez utiliser un outil graphique comme :
+# Advanced IP Scanner (https://www.advanced-ip-scanner.com/fr/)
 
-📌 **Par défaut**, l’IP du Player est souvent `192.168.0.2`.
+# Astuce : par défaut, l’IP du Freebox Player est souvent :
+# 192.168.0.2
 
----
 
 ### 2. Récupérer le code de la télécommande
 
