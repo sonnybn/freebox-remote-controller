@@ -71,11 +71,7 @@ Sur la télévision (via le Player) :
 - Noter le code à 8 chiffres affiché (ex : `55984265`)
 
 🎬 **Vidéo explicative** :
-<video width="600" controls>
-  <source src="telec.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la lecture vidéo.
-</video>
-
+>[Voir la vidéo explicative](telec.mp4)
 ---
 
 ### 3. Modifier le fichier `app.py`
