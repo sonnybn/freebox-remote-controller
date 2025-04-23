@@ -71,7 +71,7 @@ Sur la télévision (via le Player) :
 - Noter le code à 8 chiffres affiché (ex : `55984265`)
 
 🎬 **Vidéo explicative** :
->[Voir la vidéo explicative](telec.mp4)
+![Vidéo explicative](images/telec.gif)
 ---
 
 ### 3. Modifier le fichier `app.py`
