@@ -139,7 +139,8 @@ http://192.168.0.2/pub/remote_control?code=55984265&key=vol_up
 ```
 
 🎬 **Vidéo Démonstration** :
-![Vidéo explicative](images/telec.gif)
+![Vidéo explicative](images/test.gif)
+![Vidéo explicative](images/test2.gif)
 
 ---
 
