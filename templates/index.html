@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Télécommande Freebox</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="remote">
+    <h2>📺 Télécommande Freebox</h2>
+    <form method="post" action="/send">
+      <div class="row">
+        <button name="key" value="up">⬆️</button>
+      </div>
+      <div class="row">
+        <button name="key" value="left">⬅️</button>
+        <button name="key" value="ok">OK</button>
+        <button name="key" value="right">➡️</button>
+      </div>
+      <div class="row">
+        <button name="key" value="down">⬇️</button>
+      </div>
+      <div class="row">
+        <button name="key" value="vol_dec">🔉</button>
+        <button name="key" value="mute">🔇</button>
+        <button name="key" value="vol_inc">🔊</button>
+      </div>
+      <div class="row">
+        {% for i in range(1, 10) %}
+          <button name="key" value="{{ i }}">{{ i }}</button>
+        {% endfor %}
+        <button name="key" value="0">0</button>
+      </div>
+      <div class="row">
+        <button name="key" value="retour">↩️ Retour</button>
+        <button name="key" value="home">🏠 Menu</button>
+        <button name="key" value="power">🔌 Allumer</button>
+        <button name="key" value="power">🔌 Éteindre</button>
+      </div>
+      <div class="row">
+        <button name="key" value="prgm_inc">🔼 Chaîne +</button>
+        <button name="key" value="prgm_dec">🔽 Chaîne -</button>
+        <button name="key" value="guide">📜 Guide</button>
+        <button name="key" value="info">ℹ️ Info</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
