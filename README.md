@@ -1,3 +1,4 @@
+
 # Freebox Remote Web
 
 ## Présentation
@@ -39,66 +40,102 @@ L’utilisateur peut ainsi remplacer la télécommande physique par une téléco
    ```bash
    git clone https://github.com/nom-utilisateur/freebox-remote-web.git
    cd freebox-remote-web
-Installer les dépendances :
+   ```
 
-pip install flask
-pip install requests
+2. **Installer les dépendances** :
+   ```bash
+   pip install flask requests
+   ```
 
-Lancer le serveur :
-python app.py
-Accéder à l’interface :
-http://localhost:5000
+3. **Lancer le serveur** :
+   ```bash
+   python app.py
+   ```
 
-Configuration
-1. Récupérer l’adresse IP du Freebox Player
-Méthode recommandée :
+4. **Accéder à l’interface** :
+   [http://localhost:5000](http://localhost:5000)
 
-Aller sur l’interface Freebox OS (via mafreebox.freebox.fr)
+---
 
-Accéder à la rubrique Périphériques connectés
+## Configuration
 
-Identifier le Freebox Player par son adresse MAC ou son nom
+### 1. Récupérer l’adresse IP du Freebox Player
 
-Sinon, depuis le terminal :
+#### Méthode recommandée :
+
+- Aller sur l’interface Freebox OS ([mafreebox.freebox.fr](http://mafreebox.freebox.fr))
+- Accéder à la rubrique **Périphériques connectés**
+- Identifier le Freebox Player par son **adresse MAC** ou son **nom**
+
+#### Sinon, depuis le terminal :
+```bash
 arp -a
-Rechercher l’adresse IP associée à l’adresse MAC du Freebox Player
+```
+Rechercher l’adresse IP associée à l’adresse MAC du Freebox Player.
 
-2. Récupérer le code de la télécommande
+> Exemple d’identification depuis la Freebox OS :
+> ![Capture Freebox OS](images/freebox_os_mac.png)
+
+---
+
+### 2. Récupérer le code de la télécommande
+
 Sur la télévision (via le Player) :
 
-Aller dans Paramètres → Système → Télécommande Freebox
-
-Noter le code à 8 chiffres affiché (ex : 55984265)
+- Aller dans **Paramètres → Système → Télécommande Freebox**
+- Noter le code à 8 chiffres affiché (ex : `55984265`)
 
 Ce code sera utilisé dans les requêtes HTTP.
 
-Structure du projet
+---
+
+## Structure du projet
+
+```
 freebox-remote-web/
 ├── app.py              # Serveur Flask
 ├── static/
 │   └── style.css       # Styles de l’interface
 ├── templates/
 │   └── index.html      # Interface utilisateur
+├── images/             # Captures d’écran utilisées dans le README
 └── README.md
-Exemple de requête envoyée
+```
+
+---
+
+## Exemple de requête envoyée
+
 Chaque bouton de la télécommande web génère une requête de la forme :
+```
 http://<IP_FREEBOX>/pub/remote_control?code=<CODE_TEL>&key=<TOUCHE>
+```
+
 Exemple pour augmenter le volume :
+```
 http://192.168.0.2/pub/remote_control?code=55984265&key=vol_up
-Limitations connues
-Certains codes (return, guide) ne sont pas fonctionnels selon les versions du firmware Freebox
+```
 
-Le comportement du bouton power dépend du contexte (veille ou allumage)
+---
 
-Le code de télécommande et l’adresse IP peuvent varier selon le matériel
+## Limitations connues
 
-Cas d’usage
-Projet de domotique local
-Présentation pédagogique sur les APIs réseau et Flask
-Substitution d’une télécommande physique défaillante
-Démonstration de communication client-serveur sur un réseau local
+- Certains codes (`return`, `guide`) ne sont pas fonctionnels selon les versions du firmware Freebox.
+- Le comportement du bouton `power` dépend du contexte (veille ou allumage).
+- Le code de télécommande et l’adresse IP peuvent varier selon le matériel.
 
-Auteurs
-Projet réalisé par Sonny
+---
+
+## Cas d’usage
+
+- Projet de domotique local
+- Présentation pédagogique sur les APIs réseau et Flask
+- Substitution d’une télécommande physique défaillante
+- Démonstration de communication client-serveur sur un réseau local
+
+---
+
+## Auteurs
+
+Projet réalisé par **Sonny**  
 Date : Avril 2025
-
